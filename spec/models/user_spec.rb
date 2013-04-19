@@ -135,4 +135,11 @@ describe User do
     its(:remember_token) { should_not be_blank } # equivalent to it { @user.remember_token.should_not be_blank }
   end
   
+  
+  describe "admin attribute is not accesible" do
+    User.accessible_attributes.each do |attr|
+      it { attr.should_not == "admin" }
+    end
+  end
+  
 end
